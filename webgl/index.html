@@ -46,27 +46,6 @@
 
          function update()
          {
-            var fontLoader = new THREE.FontLoader();
-	fontLoader.load( '',
-		             function(font){
-		             	var geoTexto = new THREE.TextGeometry( 
-		             		'PROVA',
-		             		{
-		             			size: 0.5,
-		             			height: 0.1,
-		             			curveSegments: 3,
-		             			style: "normal",
-		             			font: font,
-		             			bevelThickness: 0.05,
-		             			bevelSize: 0.04,
-		             			bevelEnabled: true
-		             		});
-		             	var matTexto = new THREE.MeshBasicMaterial( {color:'red'} );
-		             	var texto = new THREE.Mesh( geoTexto, matTexto );
-		             	scene.add( texto );
-		             	texto.position.x = -1;
-		             });
-         }
          
          function render() {
             requestAnimationFrame( render );
