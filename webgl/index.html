@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="es">
+   <head>
+      <meta charset='utf-8'>
+      <title>Conecta 4</title>
+      <style>
+         body
+         {
+            background-color: black;
+            margin:0px;
+            overflow:hidden;
+         }
+      </style>
+   </head>
+   <body>
+      <div id="container"><canvas width="840" height="853" style="width: 840px; height: 853px;"></canvas></div>
+      <script src="lib/three.min_r96.js"></script>
+      <script>
+         //Variables globales
+         var renderer, scene, camera;
+         
+         init();
+         loadScene();
+         render();
+
+         function init() {
+            // Motor de render
+            renderer = new THREE.WebGLRenderer();
+            renderer.setSize( window.innerWidth, window.innerHeight );
+            renderer.setClearColor( new THREE.Color(0x000000) );
+            document.getElementById('container').appendChild(renderer.domElement);
+
+            // Escena
+            scene = new THREE.Scene();
+
+            // Camara
+            var aspectRatio = window.innerWidth/window.innerHeight;
+            camera = new THREE.PerspectiveCamera( 75, aspectRatio, 0.1, 100 );
+            camera.position.set( 0.5, 2, 5 );
+            camera.lookAt( new THREE.Vector3( 0,0,0 ) );
+         }
+
+         function loadScene(){
+
+         }
+
+         function update()
+         {
+            var fontLoader = new THREE.FontLoader();
+	fontLoader.load( '',
+		             function(font){
+		             	var geoTexto = new THREE.TextGeometry( 
+		             		'PROVA',
+		             		{
+		             			size: 0.5,
+		             			height: 0.1,
+		             			curveSegments: 3,
+		             			style: "normal",
+		             			font: font,
+		             			bevelThickness: 0.05,
+		             			bevelSize: 0.04,
+		             			bevelEnabled: true
+		             		});
+		             	var matTexto = new THREE.MeshBasicMaterial( {color:'red'} );
+		             	var texto = new THREE.Mesh( geoTexto, matTexto );
+		             	scene.add( texto );
+		             	texto.position.x = -1;
+		             });
+         }
+         
+         function render() {
+            requestAnimationFrame( render );
+            update();
+            renderer.render( scene, camera );
+         }
+      </script>
+   </body>
+
+<html>
