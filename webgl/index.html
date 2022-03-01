@@ -41,17 +41,7 @@
             camera.position.set( 0.5, 2, 5 );
             camera.lookAt( new THREE.Vector3( 0,0,0 ) );
 
-            material = new THREE.MeshPhysicalMaterial({
-            color: 0xb2ffc8,
-            envMap: envTexture,
-            metalness: 0.25,
-            roughness: 0.1,
-            opacity: 1.0,
-            transparent: true,
-            transmission: 0.99,
-            clearcoat: 1.0,
-            clearcoatRoughness: 0.25
-         })
+            material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
 
             //Griglia
             loader = new STLLoader()
