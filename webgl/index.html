@@ -44,7 +44,7 @@
             material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
 
             //Griglia
-            var loader = new THREE.ObjectLoader();
+            var loader = new THREE.JSONLoader();
             loader.load( 'models/connect4/Griglia.json', 
                         function (objeto){
                            objeto.scale.set(0.8,0.8,0.8);
