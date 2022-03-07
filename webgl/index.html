@@ -15,7 +15,7 @@
    <body>
       <div id="container"><canvas width="840" height="853" style="width: 840px; height: 853px;"></canvas></div>
       <script src="lib/three.min_r96.js"></script>
-      <script src="loaders/STLLoader.js"></script>
+      <script type="module" src="loaders/STLLoader.js"></script>
       <script>
 
          //Variables globales
@@ -46,7 +46,7 @@
             material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
 
             //Griglia
-            loader = new THREE.STLLoader();
+            loader = new STLLoader();
             loader.load(
                'models/connect4/Griglia.stl',
                function (geometry) {
